@@ -1,0 +1,114 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+
+<h:body>
+	<h:form>
+		<p:dataTable id="tbl" var="cot" value="#{cotizacionView.cotizaciones}"
+			paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {Exporters}"
+			paginator="true" rows="10" style="margin-bottom:20px"
+			rowsPerPageTemplate="5,10,15"
+			currentPageReportTemplate="{startRecord}-{endRecord} de {totalRecords} registros">
+
+			<f:facet name="header">
+				Listado
+				<p:commandButton action="#{cotizacionView.nuevo()}" value="Nuevo"></p:commandButton>
+			</f:facet>
+
+			<p:columnGroup type="header">
+				<p:row>
+					<p:column rowspan="3" headerText="Fecha" sortBy="#{cot.fecha}"
+						filterBy="#{cot.fecha}" filterMatchMode="contains">
+						<h:outputText value="#{cot.fecha}">
+							<f:convertDateTime pattern="dd-MM-yyyy" />
+						</h:outputText>
+					</p:column>
+				</p:row>
+				<p:row>
+					<p:column colspan="2" headerText="Dolar" />
+					<p:column colspan="2" headerText="Real" />
+					<p:column colspan="2" headerText="Peso Arg." />
+					<p:column colspan="2" headerText="YEN" />
+					<p:column colspan="2" headerText="Euro" />
+					<p:column colspan="2" headerText="Libra" />
+				</p:row>
+				<p:row>
+					<p:column headerText="Compra" />
+					<p:column headerText="Venta" />
+					<p:column headerText="Compra" />
+					<p:column headerText="Venta" />
+					<p:column headerText="Compra" />
+					<p:column headerText="Venta" />
+					<p:column headerText="Compra" />
+					<p:column headerText="Venta" />
+					<p:column headerText="Compra" />
+					<p:column headerText="Venta" />
+					<p:column headerText="Compra" />
+					<p:column headerText="Venta" />
+				</p:row>
+			</p:columnGroup>
+
+			<p:column>
+				<p:commandLink action="#{cotizacionView.edit(cot)}">
+					<h:outputText value="#{cot.fecha}">
+						<f:convertDateTime pattern="dd-MM-yyyy" />
+					</h:outputText>
+				</p:commandLink>
+			</p:column>
+
+			<p:column>
+				<h:outputText value="#{cot.dolarCompra}" />
+			</p:column>
+
+			<p:column>
+				<h:outputText value="#{cot.dolarVenta}" />
+			</p:column>
+
+			<p:column>
+				<h:outputText value="#{cot.realCompra}" />
+			</p:column>
+
+			<p:column>
+				<h:outputText value="#{cot.realVenta}" />
+			</p:column>
+
+			<p:column>
+				<h:outputText value="#{cot.pesoArgCompra}" />
+			</p:column>
+
+			<p:column>
+				<h:outputText value="#{cot.pesoArgVenta}" />
+			</p:column>
+
+			<p:column>
+				<h:outputText value="#{cot.yenCompra}" />
+			</p:column>
+
+			<p:column>
+				<h:outputText value="#{cot.yenVenta}" />
+			</p:column>
+
+			<p:column>
+				<h:outputText value="#{cot.euroCompra}" />
+			</p:column>
+
+			<p:column>
+				<h:outputText value="#{cot.euroVenta}" />
+			</p:column>
+
+			<p:column>
+				<h:outputText value="#{cot.libraCompra}" />
+			</p:column>
+
+			<p:column>
+				<h:outputText value="#{cot.libraVenta}" />
+			</p:column>
+		</p:dataTable>
+	</h:form>
+</h:body>
+
+</html>
