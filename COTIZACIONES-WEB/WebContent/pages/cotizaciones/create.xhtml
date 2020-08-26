@@ -1,55 +1,66 @@
-<html xmlns="http://www.w3.org/1999/xhtml"
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:p="http://primefaces.org/ui">
+	template="/pages/template/template.xhtml">
+	<ui:define name="metadata">
+	</ui:define>
+	<ui:define name="content">
+		<h:head>
+			<f:facet name="first">
+				<meta content='text/html; charset=UTF-8' http-equiv="Content-Type" />
+				<title>Cotizaciones</title>
+			</f:facet>
+		</h:head>
+		<h:body>
+			<h:form>
+				<h:panelGrid columns="4" cellpadding="5">
+					<p:outputLabel>Código</p:outputLabel>
+					<p:inputNumber disabled="true"
+						value="#{cotizacionView.cotizacion.codigo}"></p:inputNumber>
 
-<h:head>
-</h:head>
-<h:body>
-	<h:form>
-		<h:panelGrid columns="4" cellpadding="5">
-			<p:outputLabel>Código</p:outputLabel>
-			<p:inputNumber disabled="true"
-				value="#{cotizacionView.cotizacion.codigo}"></p:inputNumber>
+					<p:outputLabel>Fecha</p:outputLabel>
+					<p:datePicker value="#{cotizacionView.cotizacion.fecha}"></p:datePicker>
 
-			<p:outputLabel>Fecha</p:outputLabel>
-			<p:datePicker value="#{cotizacionView.cotizacion.fecha}"></p:datePicker>
+				</h:panelGrid>
 
-		</h:panelGrid>
+				<h:panelGrid columns="3" cellpadding="5">
+					<p:outputLabel>Dolar</p:outputLabel>
+					<p:inputNumber value="#{cotizacionView.cotizacion.dolarCompra}" />
+					<p:inputNumber value="#{cotizacionView.cotizacion.dolarVenta}" />
 
-		<h:panelGrid columns="3" cellpadding="5">
-			<p:outputLabel>Dolar</p:outputLabel>
-			<p:inputNumber value="#{cotizacionView.cotizacion.dolarCompra}" />
-			<p:inputNumber value="#{cotizacionView.cotizacion.dolarVenta}" />
+					<p:outputLabel>Real</p:outputLabel>
+					<p:inputNumber value="#{cotizacionView.cotizacion.realCompra}" />
+					<p:inputNumber value="#{cotizacionView.cotizacion.realVenta}" />
 
-			<p:outputLabel>Real</p:outputLabel>
-			<p:inputNumber value="#{cotizacionView.cotizacion.realCompra}" />
-			<p:inputNumber value="#{cotizacionView.cotizacion.realVenta}" />
+					<p:outputLabel>Peso Arg.</p:outputLabel>
+					<p:inputNumber value="#{cotizacionView.cotizacion.pesoArgCompra}" />
+					<p:inputNumber value="#{cotizacionView.cotizacion.pesoArgVenta}" />
 
-			<p:outputLabel>Peso Arg.</p:outputLabel>
-			<p:inputNumber value="#{cotizacionView.cotizacion.pesoArgCompra}" />
-			<p:inputNumber value="#{cotizacionView.cotizacion.pesoArgVenta}" />
+					<p:outputLabel>Yen</p:outputLabel>
+					<p:inputNumber value="#{cotizacionView.cotizacion.yenCompra}" />
+					<p:inputNumber value="#{cotizacionView.cotizacion.yenVenta}" />
 
-			<p:outputLabel>Yen</p:outputLabel>
-			<p:inputNumber value="#{cotizacionView.cotizacion.yenCompra}" />
-			<p:inputNumber value="#{cotizacionView.cotizacion.yenVenta}" />
+					<p:outputLabel>Euro.</p:outputLabel>
+					<p:inputNumber value="#{cotizacionView.cotizacion.euroCompra}" />
+					<p:inputNumber value="#{cotizacionView.cotizacion.euroVenta}" />
 
-			<p:outputLabel>Euro.</p:outputLabel>
-			<p:inputNumber value="#{cotizacionView.cotizacion.euroCompra}" />
-			<p:inputNumber value="#{cotizacionView.cotizacion.euroVenta}" />
+					<p:outputLabel>Libra</p:outputLabel>
+					<p:inputNumber value="#{cotizacionView.cotizacion.libraCompra}" />
+					<p:inputNumber value="#{cotizacionView.cotizacion.libraVenta}" />
+				</h:panelGrid>
 
-			<p:outputLabel>Libra</p:outputLabel>
-			<p:inputNumber value="#{cotizacionView.cotizacion.libraCompra}" />
-			<p:inputNumber value="#{cotizacionView.cotizacion.libraVenta}" />
-		</h:panelGrid>
+				<h:panelGrid columns="4" cellpadding="5">
+					<p:commandButton action="#{cotizacionView.create()}"
+						value="Guardar"></p:commandButton>
+					<p:button outcome="index" value="Volver"></p:button>
 
-		<h:panelGrid columns="4" cellpadding="5">
-			<p:commandButton action="#{cotizacionView.create()}"
-				value="Guardar"></p:commandButton>
-			<p:button outcome="index" value="Volver"></p:button>
+				</h:panelGrid>
 
-		</h:panelGrid>
-
-	</h:form>
-</h:body>
-</html>
+			</h:form>
+		</h:body>
+	</ui:define>
+</ui:composition>
